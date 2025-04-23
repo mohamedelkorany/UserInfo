@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Users Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <style>
       * {
         box-sizing: border-box;
@@ -12,13 +13,20 @@
       }
 
       body {
-        font-family: Arial, sans-serif;
-        background-color: #fff8f0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #fff8f0, #ffeaea);
         height: 100vh;
         width: 100vw;
         display: flex;
         flex-direction: column;
         padding: 20px;
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        text-align: center;
+        color: crimson;
+        margin-bottom: 20px;
       }
 
       .user-name {
@@ -41,6 +49,7 @@
         padding: 8px 16px;
         transition: all 0.3s ease;
         display: inline-block;
+        font-size: 0.95rem;
       }
 
       .btns:hover {
@@ -79,11 +88,16 @@
       }
 
       .user-posts ul {
-        padding-left: 20px;
+        padding-left: 0;
+        list-style: none;
       }
 
       .user-posts li {
         margin-bottom: 10px;
+        background-color: #fffef0;
+        padding: 10px 15px;
+        border-radius: 6px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
       }
 
       @media (max-width: 600px) {
@@ -99,6 +113,7 @@
     </style>
   </head>
   <body>
+    <h1>📋 Users & Their Posts</h1>
     <section class="user-name"></section>
     <div id="spinner" class="spinner"></div>
     <section class="user-posts"></section>
@@ -117,7 +132,7 @@
         for (let [index, name] of names.entries()) {
           const btn = document.createElement("button");
           btn.classList.add("btns");
-          btn.innerText = name.name;
+          btn.innerText = `👤 ${name.name}`;
 
           btn.addEventListener("click", async () => {
             document.querySelectorAll(".btns").forEach((b) => {
