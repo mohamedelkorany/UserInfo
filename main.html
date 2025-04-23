@@ -5,8 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Users Posts</title>
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff8f0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .user-name {
+        background-color: rgb(255, 255, 200);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
       .btns {
-        margin: 10px;
+        margin: 10px 10px 10px 0;
         width: max-content;
         color: black;
         background-color: antiquewhite;
@@ -15,6 +40,7 @@
         cursor: pointer;
         padding: 8px 16px;
         transition: all 0.3s ease;
+        display: inline-block;
       }
 
       .btns:hover {
@@ -48,7 +74,8 @@
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
-        margin-top: 20px;
+        flex: 1;
+        overflow-y: auto;
       }
 
       .user-posts ul {
@@ -58,10 +85,21 @@
       .user-posts li {
         margin-bottom: 10px;
       }
+
+      @media (max-width: 600px) {
+        .btns {
+          padding: 6px 12px;
+          font-size: 14px;
+        }
+
+        .user-posts {
+          padding: 15px;
+        }
+      }
     </style>
   </head>
   <body>
-    <section class="user-name" style="background-color: rgb(255, 255, 200);"></section>
+    <section class="user-name"></section>
     <div id="spinner" class="spinner"></div>
     <section class="user-posts"></section>
 
